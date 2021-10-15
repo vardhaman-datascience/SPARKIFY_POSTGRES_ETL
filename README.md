@@ -12,12 +12,12 @@ In this project, we ill we working on  data modeling with Postgres and build an 
 To complete the project, we need to define fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into these tables in Postgres using Python and SQL.
 
 
-Schema for Song Play Analysis
+## Schema for Song Play Analysis
 Using the song and log datasets, you'll need to create a star schema optimized for queries on song play analysis. This includes the following tables.
 
-Fact Table
+### Fact Table
 songplays - records in log data associated with song plays i.e. records with page NextSong
-songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
+         songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent
 Dimension Tables
 users - users in the app
 user_id, first_name, last_name, gender, level
