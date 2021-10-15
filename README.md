@@ -33,7 +33,7 @@ songplays - records in log data associated with song plays i.e. records with pag
 
 ## Project Template
 
-In addition to the data files, the project includes six files:
+In addition to the data files, the project includes five files:
 
 #### test.ipynb 
 displays the first few rows of each table to let you check your database.
