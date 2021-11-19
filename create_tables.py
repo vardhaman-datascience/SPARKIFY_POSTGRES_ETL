@@ -4,6 +4,12 @@ from sql_queries import create_table_queries, drop_table_queries
 password='abcd'
 
 def create_database():
+  """Recreates the 'sparkifydb', and returns a cursor and a database connection.
+    
+    Returns:
+        cur (psycopg2.cursor): The database cursor
+        conn (psycopg2.connection): The database connection
+    """
   
     
     # connect to default database
@@ -23,6 +29,12 @@ def create_database():
 
 
 def drop_tables(cur, conn):
+  """Drops all tables defined in `sql_queries.drop_table_queries`.
+    
+    Args:
+        cur (psycopg2.cursor): A database cursor
+        conn (psycopg2.connection): A database connection
+    """
   
     for query in drop_table_queries:
         cur.execute(query)
@@ -30,6 +42,12 @@ def drop_tables(cur, conn):
 
 
 def create_tables(cur, conn):
+  """Creates all tables defined in `sql_queries.create_table_queries`.
+    
+    Args:
+        cur (psycopg2.cursor): A database cursor
+        conn (psycopg2.connection): A database connection
+    """
  
     for query in create_table_queries:
         cur.execute(query)
