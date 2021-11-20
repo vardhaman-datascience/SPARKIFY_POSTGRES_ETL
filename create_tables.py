@@ -8,24 +8,22 @@ def create_database():
     
     Returns:
         cur (psycopg2.cursor): The database cursor
-        conn (psycopg2.connection): The database connection
-    """
+        conn (psycopg2.connection): The database connection """
   
-    
-    # connect to default database
-    conn = psycopg2.connect(f"host=divn-test.cuvxpqcqzvyz.ap-northeast-1.rds.amazonaws.com dbname=DIVN-Master user=postgres password={password}")
-    conn.set_session(autocommit=True)
-    cur = conn.cursor()
+  # connect to default database
+  conn = psycopg2.connect(f"host=divn-test.cuvxpqcqzvyz.ap-northeast-1.rds.amazonaws.com dbname=DIVN-Master user=postgres password={password}")
+  conn.set_session(autocommit=True)
+  cur = conn.cursor()
     
  
-    # close connection to default database
-    conn.close()    
+  # close connection to default database
+  conn.close()    
     
-    # connect to sparkify database
-    conn = psycopg2.connect(f"host=divn-test.cuvxpqcqzvyz.ap-northeast-1.rds.amazonaws.com dbname=sparkifydb user=postgres password={password}")
-    cur = conn.cursor()
+  # connect to sparkify database
+  conn = psycopg2.connect(f"host=divn-test.cuvxpqcqzvyz.ap-northeast-1.rds.amazonaws.com dbname=sparkifydb user=postgres password={password}")
+  cur = conn.cursor()
     
-    return cur, conn
+  return cur, conn
 
 
 def drop_tables(cur, conn):
@@ -36,9 +34,9 @@ def drop_tables(cur, conn):
         conn (psycopg2.connection): A database connection
     """
   
-    for query in drop_table_queries:
-        cur.execute(query)
-        conn.commit()
+  for query in drop_table_queries:
+      cur.execute(query)
+      conn.commit()
 
 
 def create_tables(cur, conn):
@@ -49,9 +47,9 @@ def create_tables(cur, conn):
         conn (psycopg2.connection): A database connection
     """
  
-    for query in create_table_queries:
-        cur.execute(query)
-        conn.commit()
+  for query in create_table_queries:
+      cur.execute(query)
+      conn.commit()
 
 
 def main():
